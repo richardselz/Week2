@@ -1,0 +1,14 @@
+<!DOCTYPE html> 
+<body>
+	<script type="text/javascript">
+		var myFarm = ["chickens", "pigs", "cows", "horses", "ostriches"];
+
+		for(var i = 0; i < myFarm.length; i++){
+			if(myFarm[i].indexOf("c") === 0 || myFarm[i].indexOf("o") === 0){ //can do myFarm[i][0] will do indexOf first value or could use charAt(0) where both of these would be === "c" or "o"
+							alert("Starts with 'c' or 'o'! " + myFarm[i]);
+			}
+			console.log(myFarm[i])
+		}
+	</script>
+</body>
+</html>

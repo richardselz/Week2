@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<span>Please type r, s, or p to get started</span><br/>
+	Wins: <span id="wins">0</span><br/>
+	Loses: <span id="loses">0</span><br/>
+	Ties: <span id="ties">0</span><br/><br/><br/>
+	The computer chose: <span id="chose"></span>
+	<span id="user-text"><strong>...Nothing.</strong></span>
+	<script type="text/javascript">
+		//Click R, P or S to Start
+
+		//If Paper beats Rock, Rock beats Scissors, Scissors beat Rock
+		//Restart game by clicking Space
+
+		// Let's start by grabbing a reference to the <span> below.
+   //    	var keyPress = document.getElementById("user-text");
+   //    	var wins, loses, ties: 0;
+
+   //    // Next, we give JavaScript a function to execute when onkeyup event fires.
+   //    	document.onkeyup = function(event) {
+	  //       keyPress.textContent = event.key;
+	  //       console.log(keyPress.textContent);
+	  //     };
+
+	  //     if(keyPress.textContent === "r" || keyPress.textContent === "s" || keyPress.textContent === "p"){
+	  //     	var computerChoices = ['r', 'p', 's'];
+			// var computerChose = Math.floor(Math.random()*3);
+			// var computerLetterChoice = computerChoice[computerChose];
+
+			// if(keyPress.textContent === "r" && computerLetterChoice === "s"){
+			// 	wins++;
+
+			// }
+	  //     }
+
+	  var wins = 0;
+	  var loses = 0;
+	  var ties = 0;
+
+	  var winsUpdate = document.getElementById("wins");
+	  var losesUpdate = document.getElementById("loses");
+	  var tiesUpdate = document.getElementById("ties");
+	  var userText = document.getElementById("user-text");
+
+
+	  function userWins() {
+	  	wins++;
+	  	// console.log("User Wins " + wins);
+	  	winsUpdate.textContent = wins;
+	  }
+	  function userLoses() {
+	  	loses++;
+	  	// console.log("User Loses " + loses);
+	  	losesUpdate.textContent = loses;
+	  }
+	  function userTies() {
+	  	ties++;
+	  	// console.log("User Ties " + ties);
+	  	tiesUpdate.textContent = ties;
+	  }
+
+	  function computerChoice() {
+	  	var computerChoice = ['r', 's', 'p'];
+	  	var computerChose = Math.floor(Math.random()*3);
+	  	var computerLetterChoice = computerChoice[computerChose];
+	  		  	// console.log("Computer Chose: " + computerLetterChoice);
+	  	userText.textContent = computerLetterChoice;
+	  	return computerLetterChoice;
+	  }
+
+	  function checkWhoWon(userInput, lettterHere) {
+	  	// var userInput = x;
+	  	// var lettterHere = y;
+	  	if(userInput === 'r' && lettterHere === 's') {
+	  		userWins();
+	  	}
+		else if(userInput === 'r' && lettterHere === 'p'){
+	  		userLoses();
+	  	}
+	  	else if(userInput === 'r' && lettterHere === 'r'){
+	  		userTies();
+	  	}
+	  	else if(userInput === 's' && lettterHere === 'r'){
+	  		userLoses();
+	  	}
+	  	else if(userInput === 's' && lettterHere === 'p'){
+	  		userWins();
+	  	}
+	  	else if(userInput === 's' && lettterHere === 's'){
+	  		userTies();
+	  	}
+	  	else if(userInput === 'p' && lettterHere === 'r'){
+	  		userWins();
+	  	}
+	  	else if(userInput === 'p' && lettterHere === 's'){
+	  		userLoses();
+	  	}
+	  	else if(userInput === 'p' && lettterHere === 'p'){
+	  		userTies();
+	  	}
+	  }
+
+	  document.onkeyup = function(event) {
+        var userInput = event.key;
+        var letterChosenHere = computerChoice();
+        // console.log("User Chose: " + userInput);
+        checkWhoWon(userInput, letterChosenHere);
+      };
+
+	</script>
+</body>
+</html>
