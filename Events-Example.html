@@ -13,7 +13,9 @@
       <div class="row">
         <div class="col-md-offset-2 col-md-8">
           <div class="jumbotron">
-            <h2>You just typed <span id="user-text"><strong>...Nothing.</strong></span></h2>
+            <h2>You just typed (key): <span id="user-text"><strong>...Nothing.</strong></span></h2><br/><br/><br/>
+            <h2>You just typed (keyCode): <span id="user-text2"><strong>...Nothing.</strong></span></h2><br/><br/><br/>
+            <!-- <h2>You just typed (keyIdentifier)<span id="user-text3"><strong>...Nothing.</strong></span></h2> -->
           </div>
         </div>
       </div>
@@ -24,11 +26,15 @@
     <script type="text/javascript">
       // Let's start by grabbing a reference to the <span> below.
       var userText = document.getElementById("user-text");
+      var userText2 = document.getElementById("user-text2");
+      // var userText3 = document.getElementById("user-text3");
 
       // Next, we give JavaScript a function to execute when onkeyup event fires.
       document.onkeyup = function(event) {
         userText.textContent = event.key;
-        console.log(userText.textContent);
+        userText2.textContent = event.keyCode;
+        // userText3.textContent = event.keyIdentifier;
+        // console.log(userText.textContent);
       };
 
 

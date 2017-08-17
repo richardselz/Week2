@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="UTF-8">
+    <title>My First Object</title>
+  </head>
+  <body>
+
+    <script>
+
+      var car = {
+        make: ["Honda", "Fiat", "Ford", "Hyundai"],
+        model: "Fit",
+        color: "Blue Raspberry",
+        mileage: 3000,
+        isWorking: true,
+      };
+
+      car.make.forEach(function(makeValue){
+        console.log("The make is currently: " + makeValue);
+      });
+    </script>
+    
+  </body>
+</html>
