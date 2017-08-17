@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Trigger Clicked</title>
+  <style>
+  h3,
+  button {
+    text-transform: uppercase;
+  }
+
+  .hide-me {
+    display: none;
+  }
+
+  </style>
+  <!-- Added link to the jQuery library -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+</head>
+
+<body>
+  <!-- Header with an id of click-me -->
+  <h3 id="click-me">click me!</h3>
+  <button id="click-me-too">click me too!</button>
+  <script type="text/javascript">
+  // This "document.ready" code isn't necessary in this example... but is useful to become familiar with.
+  // "document.ready" makes sure that our JavaScript doesn't get run until the HTML document is finished loading.
+  $(document).ready(function() {
+    var count = 0;
+    // Here we use jQuery to select the header with "click-me" as its ID.
+    // Whenever it is clicked...
+    $("#click-me").on("click", function(){
+      $("#click-me").attr("class", "hide-me");
+    });
+
+    $("#click-me-too").on("click", function() {
+      // ... we trigger an alert.
+      alert("Thank you so much for clicking me!");
+    });
+
+  });
+
+  </script>
+</body>
+
+</html>
